@@ -42,8 +42,8 @@ for catalog in cat:
         z.append(- catalog.origins[0].depth/1000)
 
 #    print(x,y,z)
-#for azm in range(-45,0,15):
-for azm in [30]:
+#for dep in range(-45,0,15):
+for dep in [30]:
     fig = plt.figure()
 
 
@@ -67,9 +67,8 @@ for azm in [30]:
     ax.set_zlim(-700, 11)
 
     #p = ax.scatter(lons, lats, msl_alt, c=tec_cal, cmap='jet')
-    for dep in range(-360,1,5):
-#    for dep in [315]:
-        ax.view_init(azm, dep)
+    for azm in range(-360,1,5):
+        ax.view_init(dep, azm)
         plt.savefig('test_3dscatter_{}_{}.png'.format(azm,dep),dpi=300,bbox_inches='tight')
         ax.set_xlabel('Latitude')
         ax.set_ylabel('Longitude')
